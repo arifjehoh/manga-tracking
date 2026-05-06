@@ -6,7 +6,7 @@ import { TableView } from './features/table/TableView'
 
 function App() {
   return (
-    <Box minH="100vh" bg="white">
+    <Box minH="100vh" bg="white" _dark={{ bg: 'gray.900' }}>
       <Navigation />
       <Routes>
         <Route path="/" element={<Navigate to="/table" replace />} />
