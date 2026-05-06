@@ -4,6 +4,10 @@ import (
 	"fmt"
 	"log"
 	"os"
+
+	"github.com/arif/manga-tracker/internal/api"
+	"github.com/arif/manga-tracker/internal/database"
+	"github.com/arif/manga-tracker/internal/manga"
 )
 
 func main() {
@@ -13,8 +17,25 @@ func main() {
 	fmt.Printf("Starting Manga Tracker server on port %s\n", port)
 	fmt.Printf("Data directory: %s\n", dataDir)
 
-	// TODO: Initialize database, HTTP server, and routes
-	log.Fatal("Server not yet implemented")
+	// Initialize database
+	db, err := database.Initialize(dataDir)
+	if err != nil {
+		log.Fatalf("Failed to initialize database: %v", err)
+	}
+	defer func() {
+		if err := db.Close(); err != nil {
+			log.Printf("Error closing database: %v", err)
+		}
+	}()
+
+	// Create repository
+	repo := manga.NewRepository(db)
+
+	// Create and start HTTP server
+	server := api.NewServer(repo, dataDir, port)
+	if err := server.Start(); err != nil {
+		log.Fatalf("Server failed: %v", err)
+	}
 }
 
 func getEnv(key, fallback string) string {
