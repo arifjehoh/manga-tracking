@@ -4,6 +4,20 @@ A personal web app for tracking manga series across different reading statuses. 
 
 > **🤖 Built with AI:** This project was developed using GitHub Copilot's [grill-with-docs](https://github.com/mattpocock/skills/tree/main/skills/engineering/grill-with-docs) skill by [@mattpocock](https://github.com/mattpocock). The skill facilitates a systematic interview process to clarify requirements, sharpen terminology, and document decisions inline—resulting in a fully functional application with comprehensive documentation.
 
+## Screenshots
+
+### Table View (Light Mode)
+![Table View Light](docs/screenshots/table-light.png)
+
+### Table View (Dark Mode)
+![Table View Dark](docs/screenshots/table-dark.png)
+
+### Kanban View (Light Mode)
+![Kanban View Light](docs/screenshots/kanban-light.png)
+
+### Kanban View (Dark Mode)
+![Kanban View Dark](docs/screenshots/kanban-dark.png)
+
 ## Initial Prompt
 
 ```
